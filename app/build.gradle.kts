@@ -1,11 +1,13 @@
 plugins {
 	id("com.android.application")
 	id("org.jetbrains.kotlin.android")
+	id("kotlin-kapt")
+	id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
 	namespace = "com.rektstudios.littlelemon"
-	compileSdk = 33
+	compileSdk = 34
 
 	defaultConfig {
 		applicationId = "com.rektstudios.littlelemon"
@@ -30,11 +32,11 @@ android {
 		}
 	}
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_1_8
-		targetCompatibility = JavaVersion.VERSION_1_8
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
 	}
 	kotlinOptions {
-		jvmTarget = "1.8"
+		jvmTarget = "17"
 	}
 	buildFeatures {
 		compose = true
@@ -51,7 +53,7 @@ android {
 
 dependencies {
 
-	implementation("androidx.core:core-ktx:1.9.0")
+	implementation("androidx.core:core-ktx:1.12.0")
 	implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 	implementation("androidx.activity:activity-compose:1.8.0")
 	implementation(platform("androidx.compose:compose-bom:2023.03.00"))
@@ -59,11 +61,25 @@ dependencies {
 	implementation("androidx.compose.ui:ui-graphics")
 	implementation("androidx.compose.ui:ui-tooling-preview")
 	implementation("androidx.compose.material3:material3")
+	implementation("androidx.navigation:navigation-compose:2.7.4")
+	implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+	implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+	implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+	implementation("io.ktor:ktor-client-android:2.1.3")
+	implementation("io.ktor:ktor-client-content-negotiation:2.1.3")
+	implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
+	implementation("com.github.bumptech.glide:compose:1.0.0-alpha.1")
+	implementation("androidx.room:room-runtime:2.6.0")
+	implementation("androidx.compose.runtime:runtime-livedata")
+	kapt("androidx.room:room-compiler:2.6.0")
 	testImplementation("junit:junit:4.13.2")
 	androidTestImplementation("androidx.test.ext:junit:1.1.5")
 	androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 	androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
 	androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+	androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+	androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+	androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
 	debugImplementation("androidx.compose.ui:ui-tooling")
 	debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
